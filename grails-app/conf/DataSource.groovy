@@ -6,9 +6,9 @@ dataSource {
 	pooled = true
     driverClassName = "org.postgresql.Driver"
     dialect = "net.kaleidos.hibernate.PostgresqlExtensionsDialect"
-    url = "jdbc:postgresql://localhost/fhir"
-    username = "fhir"
-    password = "fhir"
+    url = System.env.DATASOURCE_URL ? System.env.DATASOURCE_URL : "jdbc:postgresql://localhost/fhir"
+    username = System.env.DATASOURCE_USERNAME ?  System.env.DATASOURCE_USERNAME : "fhir"
+    password =  System.env.DATASOURCE_PASSWORD ? System.env.DATASOURCE_PASSWORD :  "fhir"
     dbCreate = "update"
 	
 	properties {
